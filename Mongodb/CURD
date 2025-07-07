@@ -1,0 +1,45 @@
+////*****FIND METHOD*******
+// 1............to get all the fruits name only
+fruits> db.fruits.find({},{name:1})
+
+// 2.........all fruits with stock>30
+fruits> db.fruits.find({stock:{$gt:30}})
+
+// 3........find fruits where the color array includes "Green"
+fruits> db.fruits.find({color:'Green'})
+fruits> db.fruits.find({color:{$in:["Green","yellow"]}})
+fruits> db.fruits.find({color:{$elemMatch:{$eq:"Green"}}})
+
+// 4..........fruits with vitamin C and price < 5.
+fruits> db.fruits.find({vitamin:'C',price:{$lt:5}})
+
+// 5..........fruits with names starting with ‘P’.
+fruits> db.fruits.find({name:{$regex:"^p",$options:"i"}})
+
+// 6...........fruits with name ending with'y'
+fruits> db.fruits.find({name:{$regex:"y$", $options:"i"}})
+
+// 7......to get  all the unique color 
+fruits> db.fruits.distinct("color")
+
+// 8........To find fruits whose special_feature contains the word "sweet", use the $regex
+fruits> db.fruits.find({special_feature:{$regex:"sweet",$options:"i"}})
+
+
+///////////////****UPDATE 
+// 9...............Update price of 'Guava' to 2.3.
+fruits> db.fruits.updateOne({name:'Guava'},{$inc:{price:2.3}})
+
+// 10..............Change duration of fruits with color 'Purple' to 'two days'.
+fruits> db.fruits.updateMany({color:'Purple'},{$set:{duration:'two days'}})
+
+// 11............remove the particular field from the document
+fruits> db.fruits.updateOne({name:"Jackfruit"},{$unset:{special_feature:""}})
+
+///////////////DELETE METHOD
+
+// 12........delete one particular document
+fruits> db.fruits.deleteOne({name:"Fig"})
+
+// 13............deletemany 
+db.fruits.deleteMany({ stock: { $lte: 15 } })
