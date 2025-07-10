@@ -65,3 +65,50 @@ for (let i = 0; i < arr.length; i++) {
     console.log(arr[i] + 1);
   }
 }
+
+
+//7.......................prefix sum [1,3,6,10,15]
+let arr = [1,2,3,4,5]
+for(let i=1; i<arr.length; i++){
+  arr[i] = arr[i] + arr[i-1]
+}
+console.log(arr)
+
+//8......................Given arr and an index k, return the sum of elements from index 0 to k.
+let arr = [5, 3, 2, 6, 1];
+let k = 3;
+let sum = 0;
+for (let i = 0; i <= k; i++) {
+  sum += arr[i];
+}
+console.log(sum);
+
+
+//9...............................Compute a prefix sum array but add only even numbers.
+//  Input: [1, 2, 3, 4, 5, 6]
+//Output: [0, 2, 2, 6, 6, 12]
+let arr = [1, 2, 3, 4, 5, 6];
+let result = [];
+let sum = 0;
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] % 2 === 0) {
+    sum += arr[i];
+  }
+  result.push(sum);
+}
+console.log(result);
+
+
+//10..................................Is Prefix Sum Equal to Target?
+let arr = [1, 2, 3];
+let k = 2;
+let target = 6;
+let sum = 0;
+for (let i = 0; i <= k; i++) {
+  sum += arr[i];
+}
+if (target === sum) {
+  console.log("true");
+} else {
+  console.log("false");
+}

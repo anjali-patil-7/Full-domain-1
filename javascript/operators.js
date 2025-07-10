@@ -66,32 +66,17 @@ console.log(student)
 console.log(deepcopy)
 console.log(deepcopy.rollno)
 
-// 1.............................call method
-const person ={
-    name:"anjali",
-    age:22
-}
-function bla(){
-    console.log(`hello, my name is ${this.name} and i am ${this.age}`)
-}
-bla.call(person)
+///..............call, apply, bind
+function greet(age) {
+    console.log(`${this.name} is ${age} years old`);
+  }
+  
+  const user = { name: "Anjali" };
+  
+  greet.call(user, 24);           // Anjali is 24
+  greet.apply(user, [24]);        // Anjali is 24
+  const boundGreet = greet.bind(user, 24);
+  boundGreet();                   // Anjali is 24
 
-// 2....................apply method
-const person ={
-    name:"anjali",
-    age:22
-}
-function bla(){
-    console.log(`hello, my name is ${this.name} and i am ${this.age}`)
-}
-bla.apply(person)
-// 3..........................bind method
-const person ={
-    name:"anjali",
-    age:22
-}
-function bla(){
-    console.log(`hello, my name is ${this.name} and i am ${this.age}`)
-}
-const newfun = bla.bind(person)
-newfun()
+
+  
