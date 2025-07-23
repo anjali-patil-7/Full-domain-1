@@ -66,6 +66,16 @@ for (let i = 0; i < arr.length; i++) {
   }
 }
 
+let arr = [1, 2, 4, 6, 8, 9];
+let n = 10;
+let miss = [];
+for (let i = 0; i <= n; i++) {
+  if (!arr.includes(i)) {
+    miss.push(i);
+  }
+}
+console.log(miss);
+
 
 //7.......................prefix sum [1,3,6,10,15]
 let arr = [1,2,3,4,5]
@@ -112,3 +122,55 @@ if (target === sum) {
 } else {
   console.log("false");
 }
+
+//11............................Find Pair with a Given Sum
+let arr = [1, 2, 3, 4, 5];
+let target = 6;
+let out = [];
+for (let i = 0; i < arr.length; i++) {
+  for (let j = i + 1; j < arr.length; j++) {
+    if (arr[i] + arr[j] === target) {
+      out.push([arr[i], arr[j]]);
+    }
+  }
+}
+console.log(out);
+
+
+//12............................ find non repeating 1st element 
+let arr = [1, 1, 2, 2, 3, 4, 4, 5, 5, 6];
+let nonrep = [];
+for (let i = 0; i < arr.length; i++) {
+  if (arr.indexOf(arr[i]) === arr.lastIndexOf(arr[i])) {
+    nonrep = arr[i];
+    break;
+  }
+}
+console.log(nonrep);
+
+
+//13...............check the array is palindrome or not 
+let arr = [1, 2, 3, 2, 1];
+let ispalindrome = true;
+for (let i = 0; i < arr.length / 2; i++) {
+  if (arr[i] !== arr[arr.length - 1 - i]) {
+    ispalindrome = false;
+    break;
+  }
+}
+console.log(ispalindrome);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
